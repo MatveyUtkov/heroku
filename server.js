@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require("axios");
 const app = express();
-const port=3000
+var port = process.env.PORT || 3000;
 const UserController = require('./controllers/User')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -138,7 +138,5 @@ app.post('/music', (req, res) => {
         res.send("First game is " + music1)
     });
 });
-app.listen(port, function () {
-    console.log(`app launched at address: http://localhost:${port}`)
-})
+app.listen(port);
 
